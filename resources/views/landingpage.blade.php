@@ -15,7 +15,7 @@
             <div class="logo">SMK Taruna Bhakti</div>
             <div class="menu">
                 <ul>
-                    <!-- <li><a href="{{ route('login') }}">Login</a></li> -->
+                    <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
             </div>
         </header>
@@ -25,7 +25,7 @@
         <div class="content">
             <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore tempore nam nesciunt</h1>
             <div class="btn-group">
-                <a href="admin" class="color1">Get Started</a>
+                <a href="admin" class="color1">Get Manage</a>
                 <!-- <a href="#">Learn more</a> -->
             </div>
         </div>
