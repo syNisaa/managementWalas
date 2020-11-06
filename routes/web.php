@@ -31,3 +31,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/coba', 'HomeController@coba')->name('coba');
+
+// Keuangan 
+Route::get('/keuangan', 'keuanganController@index');
