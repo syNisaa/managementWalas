@@ -17,10 +17,9 @@ Route::get('/', function () {
     return view('landingpage');
 });
 
-Route::get('/loginwalas', function () {
-    return view('loginwalas');
-});
-
+// Route::get('/loginwalas', function () {
+//     return view('loginwalas');
+// });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -30,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/coba', 'HomeController@coba')->name('coba');
-
 // Keuangan 
 Route::get('/keuangan', 'keuanganController@index');
+Route::post('/keuangan/tambah', 'keuanganController@tambah');
+Route::get('/keuangan/hapus/{id}', 'keuanganController@hapus');

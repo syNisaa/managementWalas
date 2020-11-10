@@ -11,4 +11,21 @@ class keuanganController extends Controller
         $keuangan = Keuangan::all();
         return view('keuangan.keuangankelas',['keuangan' => $keuangan]);
     }
+    
+    public function tambah(Request $request){
+        Keuangan::create([
+            'bulan' => $request->bulan,
+            'pemasukan' => $request->pemasukan,
+            'pengeluaran' => $request->pengeluaran,
+            'saldo' => $request->saldo
+        ]);
+        return redirect('/keuangan');
+    }
+
+    public function hapus($id)
+    {
+        $keuangan = Keuangan::find($id);
+        $keuangan->delete();
+        return redirect('/keuangan');
+    }
 }

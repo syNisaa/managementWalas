@@ -32,13 +32,14 @@
                 <td>{{ $k -> saldo }}</td>
                 <td>
                     <a href=""><button type="button" class="btn btn-info">Edit</button></a>
-                    <a href=""><button type="button" class="btn btn-danger">Hapus</button></a>
+                    <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
                 </td>
             </tr>
         </tbody>
         @endforeach
     </table>
 
+    <!-- Add Data Keuangan -->
     <div class="modal" tabindex="-1" id="addData">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -49,26 +50,72 @@
                 </button>
             </div>
             <div class="modal-body">
+                <form method="post" action="/keuangan/tambah">
+                    {{ csrf_field() }}
                 <div class="input-group mb-3">  
-                    <input type="text" class="form-control" placeholder="Bulan" aria-label="Bulan" aria-describedby="basic-addon1">
+                    <input type="text" name="bulan" id="bulan" class="form-control" placeholder="Bulan" aria-label="Bulan" aria-describedby="basic-addon1">
+                        @if($errors->has('bulan'))
+                                <div class="text-danger">
+                                    {{ $errors->first('bulan')}}
+                                </div>
+                        @endif
                 </div>
                 <div class="input-group mb-3">  
-                    <input type="text" class="form-control" placeholder="Pemasukan Kelas" aria-label="Pemasukan " aria-describedby="basic-addon1">
+                    <input type="text" name="pemasukan" id="pemasukan" class="form-control" placeholder="Pemasukan Kelas" aria-label="Pemasukan " aria-describedby="basic-addon1">
+                        @if($errors->has('pemasukan'))
+                                <div class="text-danger">
+                                    {{ $errors->first('pemasukan')}}
+                                </div>
+                        @endif
                 </div>
                 <div class="input-group mb-3">  
-                    <input type="text" class="form-control" placeholder="Pengeluaran Kelas" aria-label="Pengeluaran" aria-describedby="basic-addon1">
+                    <input type="text" name="pengeluaran" id="pengeluaran" class="form-control" placeholder="Pengeluaran Kelas" aria-label="Pengeluaran" aria-describedby="basic-addon1">
+                        @if($errors->has('pengeluaran'))
+                                <div class="text-danger">
+                                    {{ $errors->first('pengeluaran')}}
+                                </div>
+                        @endif
                 </div>
                 <div class="input-group mb-3">  
-                    <input type="text" class="form-control" placeholder="Saldo Kelas" aria-label="Saldo" aria-describedby="basic-addon1">
+                    <input type="text" name="saldo" id="saldo" class="form-control" placeholder="Saldo Kelas" aria-label="Saldo" aria-describedby="basic-addon1">
+                        @if($errors->has('saldo'))
+                                <div class="text-danger">
+                                    {{ $errors->first('saldo')}}
+                                </div>
+                        @endif
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Simpan Data</button>
+                <button type="submit" class="btn btn-success">Simpan Data</button>
             </div>
             </div>
+        </form>
         </div>
     </div>
+
+    <!-- Delete Data Keuangan -->
+    @foreach ($keuangan as $k)
+    <div class="modal" tabindex="-1" id="hapusData">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Data Keuangan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Anda Yakin Ingin Menghapus Data ini?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/keuangan/hapus/{{ $k->id }}"><button type="button" class="btn btn-danger">Delete</button></a>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        </div>
 </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
