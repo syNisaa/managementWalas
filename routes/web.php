@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('landingpage');
 });
 
-// Route::get('/loginwalas', function () {
-//     return view('loginwalas');
-// });
+Route::get('/coba', function () {
+    return view('layouts.app');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -27,9 +27,15 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+route::get('/dashboard', [LandingController::class, "dash"]);
+// Route::get('/showkelas', [LandingController::class, "showkelas"]);
+
+Route::get('/home' , 'DashController@showkelas')->name('dash');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/manage', 'DashController@check');
 
 // Keuangan 
 Route::get('/keuangan', 'keuanganController@index');
+Route::get('/show/{id}', 'keuanganController@show');
 Route::post('/keuangan/tambah', 'keuanganController@tambah');
 Route::get('/keuangan/hapus/{id}', 'keuanganController@hapus');
