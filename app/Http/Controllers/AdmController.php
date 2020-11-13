@@ -3,31 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Adm;
+use App\Dataadm;
 
 class AdmController extends Controller
 {
     public function index()
     {
-        $adm = Adm::all();
-        return view('walas.adm.adm', ['adm_walass' => $adm]);
-    }
-
-    public function tambah()
-    {
-        return view('walas.adm.tambah_adm');
+        $adm = Dataadm::all();
+        return view('adm.admwalas', ['adm_walass' => $adm]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'materi_pokok' => 'required',
-            'target_pengerjaan' => 'required'
+            'materiPokok' => 'required',
+            'target' => 'required'
         ]);
 
-        Adm::create([
-            'materi_pokok' => $request->materi_pokok,
-            'target_pengerjaan' => $request->target_pengerjaan
+        Dataadm::create([
+            'materiPokok' => $request->materiPokok,
+            'targetPengerjaan' => $request->target
         ]);
 
         return redirect('/adm');
@@ -42,21 +37,21 @@ class AdmController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-            'materi_pokok' => 'required',
-            'target_pengerjaan' => 'required'
+            'materiPokok' => 'required',
+            'target' => 'required'
         ]);
 
-        $adm_walass = Adm::find($id);
-        $adm_walass->materi_pokok = $request->materi_pokok;
-        $adm_walass->target_pengerjaan = $request->target_pengerjaan;
+        $adm_walass = Dataadm::find($id);
+        $adm_walass->materiPokok = $request->materiPokok;
+        $adm_walass->targetPengerjaan = $request->target;
         $adm_walass->save();
         return redirect('/adm');
     }
 
-    public function delete($id)
-{
-    $adm = Adm::find($id);
-    $adm->delete();
-    return redirect('/adm');
-}
+    public function hapus($id)
+    {
+        $adm = Dataadm::find($id);
+        $adm->delete();
+        return redirect('/adm');
+    }
 }

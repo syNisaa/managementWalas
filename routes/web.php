@@ -40,3 +40,9 @@ Route::get('/show/{id}', 'keuanganController@show');
 Route::put('/keuangan/update/{id}', 'KeuanganController@update');
 Route::post('/keuangan/tambah', 'keuanganController@tambah');
 Route::get('/keuangan/hapus/{id}', 'keuanganController@hapus');
+
+// ADM
+Route::get('/adm', 'AdmController@index');
+Route::post('/adm/tambah', 'AdmController@store');
+Route::put('/adm/update/{id}', 'AdmController@update');
+Route::get('/adm/hapus/{id}', 'AdmController@hapus');
