@@ -31,13 +31,57 @@
                 <td>{{ $k -> pengeluaran}}</td>
                 <td>{{ $k -> saldo }}</td>
                 <td>
-                    <a href=""><button type="button" class="btn btn-info">Edit</button></a>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $k->id }}">Update</button>
+                    <!-- <a href=""><button type="button" class="btn btn-info">Edit</button></a> -->
                     <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
                 </td>
             </tr>
         </tbody>
         @endforeach
     </table>
+
+
+    <!-- Modal Update Barang-->
+    @foreach($keuangan as $k)
+    <div class="modal fade" id="modalUpdate{{ $k->id }}" tabindex="-1" aria-labelledby="modalUpdate" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Management Walas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <form method="post" action="/keuangan/update/{{$k->id}}" >
+                        @csrf
+                        @method('put')
+                        <input type="hidden" class="form-control" id="id" name="id" value="{{$k->id}}">
+                    <div class="form-group">
+                        <label for="">Bulan</label>
+                        <input type="text" class="form-control" id="bulan" name="bulan" value="{{$k->bulan}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pemasukan</label>
+                        <input type="text" class="form-control" id="pemasukan" name="pemasukan" value="{{ $k->pemasukan}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pengeluaran</label>
+                        <input type="text" class="form-control" id="pengeluaran" name="pengeluaran" value="{{ $k->pengeluaran}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Saldo</label>
+                        <input type="text" class="form-control" id="saldo" name="saldo" value="{{ $k->saldo}}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Perbarui Data</button>
+                    </form>
+                    <!--END FORM UPDATE BARANG-->
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    <!-- End Modal UPDATE Barang-->
 
     <!-- Add Data Keuangan -->
     <div class="modal" tabindex="-1" id="addData">

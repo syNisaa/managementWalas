@@ -35,4 +35,16 @@ class keuanganController extends Controller
         $keuangan->delete();
         return redirect('/keuangan');
     }
+
+    public function update(Request $request,$id)
+    {
+        $keuangan = Keuangan :: find($id);
+        $keuangan->bulan = $request->bulan;
+        $keuangan->pemasukan = $request->pemasukan;
+        $keuangan->pengeluaran = $request->pengeluaran;
+        $keuangan->saldo = $request->saldo;
+        $keuangan->save();
+        // return dd(keuangan);
+        return redirect('/keuangan');
+    }
 }

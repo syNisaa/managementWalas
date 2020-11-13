@@ -20,7 +20,7 @@ class DashController extends Controller
 
         if($cek->kode == $kode){
             // echo "yey";
-            return redirect('/dash');
+            return redirect('/home/dash');
         }else {
             echo "yah";
         }

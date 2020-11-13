@@ -37,5 +37,6 @@ Route::post('/manage', 'DashController@check');
 // Keuangan 
 Route::get('/keuangan', 'keuanganController@index');
 Route::get('/show/{id}', 'keuanganController@show');
+Route::put('/keuangan/update/{id}', 'KeuanganController@update');
 Route::post('/keuangan/tambah', 'keuanganController@tambah');
 Route::get('/keuangan/hapus/{id}', 'keuanganController@hapus');
