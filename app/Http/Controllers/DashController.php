@@ -13,6 +13,11 @@ class DashController extends Controller
         return view('dashboardWalas', ['kelass' => $kelass]);
     }
 
+    public function main()
+    {
+        return view('bagian.sidebar');
+    }
+
     public function check(Request $request){
         $kode = $request->input('kode');
 
@@ -20,7 +25,7 @@ class DashController extends Controller
 
         if($cek->kode == $kode){
             // echo "yey";
-            return redirect('/home/dash');
+            return redirect('/tampil');
         }else {
             echo "yah";
         }

@@ -27,12 +27,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-route::get('/dashboard', [LandingController::class, "dash"]);
-// Route::get('/showkelas', [LandingController::class, "showkelas"]);
+Route::get('/tampil' , 'DashController@main')->name('main');
 
 Route::get('/home' , 'DashController@showkelas')->name('dash');
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/manage', 'DashController@check');
+
 
 // Keuangan 
 Route::get('/keuangan', 'keuanganController@index');
@@ -46,3 +45,24 @@ Route::get('/adm', 'AdmController@index');
 Route::post('/adm/tambah', 'AdmController@store');
 Route::put('/adm/update/{id}', 'AdmController@update');
 Route::get('/adm/hapus/{id}', 'AdmController@hapus');
+
+// Absensi 
+Route::get('/absen', 'AbsensiController@index');
+Route::post('/absen/tambah', 'AbsensiController@tambah');
+Route::get('/absen/hapus/{id}', 'AbsensiController@hapus');
+Route::put('/absen/update/{id}', 'AbsensiController@update');
+
+// kasus siswa
+Route::get('/kasus', 'KasusController@index');
+Route::post('/kasus/tambah', 'KasusController@store');
+Route::get('/kasus/hapus/{id}', 'KasusController@delete');
+Route::put('/kasus/update/{id}', 'KasusController@update');
+
+// Rapat Ortu
+Route::get('/rapat', 'RapatController@index');
+Route::post('/rapat/tambah', 'RapatController@store');
+Route::get('/rapat/hapus/{id}', 'RapatController@delete');
+Route::put('/rapat/update/{id}', 'RapatController@update');
+
+// Jadwal 
+Route::get('/jadwal', 'JadwalController@index');
