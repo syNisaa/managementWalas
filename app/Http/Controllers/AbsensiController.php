@@ -19,6 +19,7 @@ class AbsensiController extends Controller
             'jumlahKetidakhadiran' => $request->ketidakhadiran,
             'namaSiswaTidakHadir' => $request->siswatidakhadir,
             'buktiKBM' => $request->buktigambar,
+            'kode' => $request->kode
         ]);
         return redirect('/absen');
     }

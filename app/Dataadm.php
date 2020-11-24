@@ -11,5 +11,5 @@ class Dataadm extends Model
     
     protected $table = "dataadms";
 
-    protected $fillable = ['id', 'materiPokok', 'targetPengerjaan'];
+    protected $fillable = ['id', 'materiPokok', 'targetPengerjaan','kode'];
 }

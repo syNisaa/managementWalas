@@ -17,12 +17,13 @@ class AdmController extends Controller
     {
         $this->validate($request, [
             'materiPokok' => 'required',
-            'target' => 'required'
+            'target' => 'required',
         ]);
 
         Dataadm::create([
             'materiPokok' => $request->materiPokok,
-            'targetPengerjaan' => $request->target
+            'targetPengerjaan' => $request->target,
+            'kode' => $request->kode
         ]);
 
         return redirect('/adm');

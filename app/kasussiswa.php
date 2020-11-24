@@ -10,5 +10,5 @@ class kasussiswa extends Model
     
     protected $table = "kasussiswas";
 
-    protected $fillable = ['id', 'namaSiswa', 'jenisKasus', 'point', 'Tanggal'];
+    protected $fillable = ['id', 'namaSiswa', 'jenisKasus', 'point', 'Tanggal','kode'];
 }

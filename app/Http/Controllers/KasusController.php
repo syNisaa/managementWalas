@@ -25,6 +25,7 @@ class KasusController extends Controller
             'jenisKasus' => $request->jenis_kasus,
             'point' => $request->point_kasus,
             'Tanggal' => $request->tanggal,
+            'kode' => $request->kode,
         ]);
 
         return redirect('/kasus');

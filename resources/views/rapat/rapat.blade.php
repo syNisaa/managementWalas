@@ -1,49 +1,33 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Kelompok Voyager Crud Rapat Ortu</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="card mt-5">
-                <div class="card-header text-center">
-                    <a href="https://www.malasngoding.com/category/laravel" target="_blank"></a>
-                </div>
-                <div class="card-body">
-            
-                    <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
+@extends('bagian.sidebar')
+
+@section('content')
+    <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
         
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>Materi Pertemuan</th>
-                                <th>Tgl Pertemuan</th>
-                                <th>Jumlah Hadir</th>
-                                <th>Bukti</th>
-                                <th>OPSI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($rapat as $p)
-                            <tr>
-                                <td>{{ $p->materiPertemuan}}</td>
-                                <td>{{ $p->tglPertemuan}}</td>
-                                <td>{{ $p->jumlahHadir}}</td>
-                                <td>{{ $p->bukti }}</td>
-                                <td>
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#updateData{{ $p->id }}">Update</button>
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteData">Hapus</button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <table class="table table-striped" style="text-align:center; margin-top:2%;">
+        <thead>
+            <tr>
+                <th>Materi Pertemuan</th>
+                <th>Tgl Pertemuan</th>
+                <th>Jumlah Hadir</th>
+                <th>Bukti</th>
+                <th>OPSI</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($rapat as $p)
+            <tr>
+                <td>{{ $p->materiPertemuan}}</td>
+                <td>{{ $p->tglPertemuan}}</td>
+                <td>{{ $p->jumlahHadir}}</td>
+                <td>{{ $p->bukti }}</td>
+                <td>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#updateData{{ $p->id }}">Update</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteData">Hapus</button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
          <!-- Modal -->
          @foreach ($rapat as $p)
@@ -118,7 +102,6 @@
     </div>
     @endforeach
 
-    
 
          @foreach($rapat as $p)
     <div class="modal" tabindex="-1" id="deleteData">
@@ -191,8 +174,7 @@
 
             <div class="form-group">
                 <label>Bukti</label>
-                    <textarea name="bukti" id="bukti" class="form-control" placeholder="bukti .."></textarea>
-
+                    <input type="file" name="bukti" placeholder="Bukti">
                         @if($errors->has('bukti'))
                             <div class="text-danger">
                                 {{ $errors->first('bukti')}}
@@ -207,9 +189,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-    </body>
-</html>
+@endsection

@@ -6,7 +6,6 @@
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
         <thead>
             <tr>
-                <th scope="col">No</th>
                 <th scope="col">Bulan</th>
                 <th scope="col">Pemasukan Kelas</th>
                 <th scope="col">Pengeluaran Kelas</th>
@@ -17,7 +16,6 @@
         @foreach ($keuangan as $k)
         <tbody>
             <tr>
-                <th scope="row">{{ $k -> id}}</th>
                 <td>{{ $k -> bulan}}</td>
                 <td>{{ $k -> pemasukan}}</td>
                 <td>{{ $k -> pengeluaran}}</td>
@@ -119,6 +117,14 @@
                                 </div>
                         @endif
                 </div>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="kode" name="kode">
+                        <option selected>Choose...</option>
+                        <option value="1234">XII RPL 1</option>
+                        <option value="4321">XII RPL 2</option>
+                        <option value="123">XI RPL 1</option>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -151,6 +157,7 @@
             </div>
         </div>
     </div>
+    
     
 
 @endsection

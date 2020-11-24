@@ -38,14 +38,6 @@ class JadwalController extends Controller
 
     public function update($id, Request $request)
     {
-        // $this->validate($request,[
-        //     'hari' => 'required',
-        //     'tanggal' => 'required',
-        //     'nama_guru' => 'required',
-        //     'mata_pelajaran' => 'required',
-        //     'jam' => 'required'
-        // ]);
-    
         $jadwal = jadwalguru::find($id);
         $jadwal->hari = $request->hari;
         $jadwal->tanggal = $request->tanggal;

@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Absensi Kelas</title>
-</head>
-<body>
-    <div class="container">
-        
+@extends('bagian.sidebar')
+
+@section('content')
         <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
         
         <table class="table table-striped" style="text-align:center; margin-top:2%;">
             <thead>
                 <tr>
-                    <th>No</th>
                     <th>Tanggal</th>
                     <th>Jumlah Siswa Hadir</th>
                     <th>Jumlah Ketidakhadiran</th>
@@ -26,7 +17,6 @@
             <tbody>
                 @foreach($absen as $a)
                 <tr>
-                    <td>{{ $a->id}}</td>
                     <td>{{ $a-> tanggal }}</td>
                     <td>{{ $a-> jumlahSiswaHadir }}</td>
                     <td>{{ $a-> jumlahKetidakhadiran }}</td>
@@ -40,7 +30,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+   
 
     <!-- Modal -->
     <div class="modal" tabindex="-1" id="addData">
@@ -69,6 +59,14 @@
                 </div>
                 <div class="input-group mb-3">
                     <input type="file"  name="buktigambar">
+                </div>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="kode" name="kode">
+                        <option selected>Choose...</option>
+                        <option value="1234">XII RPL 1</option>
+                        <option value="4321">XII RPL 2</option>
+                        <option value="123">XI RPL 1</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
@@ -143,8 +141,4 @@
         </div>
     </div>
     @endforeach
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection

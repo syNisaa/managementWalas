@@ -32,37 +32,43 @@ Route::get('/tampil' , 'DashController@main')->name('main');
 Route::get('/home' , 'DashController@showkelas')->name('dash');
 Route::post('/manage', 'DashController@check');
 
-
 // Keuangan 
-Route::get('/keuangan', 'keuanganController@index');
-Route::get('/show/{id}', 'keuanganController@show');
-Route::put('/keuangan/update/{id}', 'KeuanganController@update');
+Route::get('/keuangannn', 'DashController@show');
+Route::put('/keuangan/update/{id}', 'keuanganController@update');
 Route::post('/keuangan/tambah', 'keuanganController@tambah');
 Route::get('/keuangan/hapus/{id}', 'keuanganController@hapus');
 
 // ADM
-Route::get('/adm', 'AdmController@index');
+Route::get('/adm', 'DashController@showadm');
 Route::post('/adm/tambah', 'AdmController@store');
 Route::put('/adm/update/{id}', 'AdmController@update');
 Route::get('/adm/hapus/{id}', 'AdmController@hapus');
 
 // Absensi 
-Route::get('/absen', 'AbsensiController@index');
+Route::get('/absen', 'dashController@showabsen');
 Route::post('/absen/tambah', 'AbsensiController@tambah');
 Route::get('/absen/hapus/{id}', 'AbsensiController@hapus');
 Route::put('/absen/update/{id}', 'AbsensiController@update');
 
 // kasus siswa
-Route::get('/kasus', 'KasusController@index');
+Route::get('/kasus', 'DashController@showkasus');
 Route::post('/kasus/tambah', 'KasusController@store');
 Route::get('/kasus/hapus/{id}', 'KasusController@delete');
 Route::put('/kasus/update/{id}', 'KasusController@update');
 
 // Rapat Ortu
-Route::get('/rapat', 'RapatController@index');
+Route::get('/rapat', 'DashController@showrapat');
 Route::post('/rapat/tambah', 'RapatController@store');
 Route::get('/rapat/hapus/{id}', 'RapatController@delete');
 Route::put('/rapat/update/{id}', 'RapatController@update');
 
 // Jadwal 
 Route::get('/jadwal', 'JadwalController@index');
+Route::get('/siswa', 'DashController@showsiswa');
+
+//Route Jadwal Rapat
+Route::get('/rapat', 'DashController@showrapat');
+Route::post('/add_jadwal', 'RapatController@add_jadwal');
+Route::get('/edit_jadwal/{id_jadwal}', 'RapatController@edit_jadwal');
+Route::put('/update/{id_jadwal}', 'RapatController@upd_jadwal');
+Route::get('/delete_jadwal/{id_menu}', 'RapatController@del_jadwal');

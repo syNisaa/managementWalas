@@ -13,10 +13,10 @@ class keuanganController extends Controller
         return view('keuangan.keuangankelas',['keuangan' => $keuangan]);
     }
 
-    public function show($id){
-        $keuangan = Keuangan::find($id);
-        // return view('keuangan.show' ,compact('keuangan'));
-        echo $keuangan;
+    public function show(Request $request){
+        $kode = $request->input('kode');
+        $keuangan = Keuangan::where('kode', $kode)->get();
+        return view('keuangan.keuangankelas' , ['keuangan'=> $keuangan]);
     }
     
     public function tambah(Request $request){
@@ -24,9 +24,10 @@ class keuanganController extends Controller
             'bulan' => $request->bulan,
             'pemasukan' => $request->pemasukan,
             'pengeluaran' => $request->pengeluaran,
-            'saldo' => $request->saldo
+            'saldo' => $request->saldo,
+            'kode' => $request->kode
         ]);
-        return redirect('/keuangan');
+        return redirect('/keuangannn');
     }
 
     public function hapus($id)

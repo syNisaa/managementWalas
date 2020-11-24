@@ -146,7 +146,7 @@
             
             <div class="modal-body">
                 <div class="input-group mb-3">
-                    <form action="/manage" method="post">
+                    <form action="/manage"   method="post">
                     {{ csrf_field() }}
                         <input type="password"  name="kode" class="form-control" placeholder="Kode Kelas" aria-label="Kode Kelas" aria-describedby="basic-addon1"><br><br><hr>
                         <button type="submit" class="btn btn-info">Kirim</button>

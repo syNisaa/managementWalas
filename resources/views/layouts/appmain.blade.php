@@ -9,7 +9,7 @@
 <body class="nav-md">
     @yield('sidebar')
         
-   
+        
 @include('bagian.js')
 </body>
 </html>

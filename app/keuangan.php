@@ -8,5 +8,5 @@ class keuangan extends Model
 {
     protected $table = 'keuangankelas';
 
-    protected $fillable = ['id','bulan','pemasukan','pengeluaran','saldo'];
+    protected $fillable = ['id','bulan','pemasukan','pengeluaran','saldo', 'kode'];
 }
