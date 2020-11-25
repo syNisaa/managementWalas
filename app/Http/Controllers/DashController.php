@@ -11,6 +11,8 @@ use App\Dataadm;
 use App\Kasussiswa;
 use App\Rapat;
 use App\Datasiswa;
+use App\Jadwalguru;
+use PDF;
 
 use Session;
 
@@ -23,7 +25,7 @@ class DashController extends Controller
 
     public function main()
     {
-        return view('bagian.sidebar');
+        return view('dashboard');
     }
 
     public function check(Request $request){
@@ -92,5 +94,37 @@ class DashController extends Controller
 			echo 'Tidak ada data dalam session.';
         }
     }
-    
+
+    public function showjadwal(Request $request){
+        if($request->session()->has('kode')){
+            $jadwal = jadwalguru::where('kode', $request->session()->get('kode'))->get();
+            return view('jadwal.jadwal', ['jadwal' => $jadwal]);
+		}else{
+			echo 'Tidak ada data dalam session.';
+        }
+    }
+    public function cetak_pdff(Request $request)
+    {
+        if($request->session()->has('kode')){
+           $absen = absensikela::where('kode', $request->session()->get('kode'))->get();
+ 
+            $pdf = PDF::loadview('laporan.absen-pdf',['absen'=>$absen]);
+            return $pdf->stream();
+		}else{
+			echo 'Tidak ada data dalam session.';
+        }
+    }
+
+    public function cetak_pdf(Request $request)
+    {
+        if($request->session()->has('kode')){
+            $jadwal = Jadwalguru::where('kode', $request->session()->get('kode'))->get();
+            
+            $pdf = PDF::loadview('laporan.jadwal-pdf',['jadwal'=>$jadwal]);
+    	    return $pdf->stream();
+         }else{
+             echo 'Tidak ada data dalam session.';
+         }
+    }
+
 }

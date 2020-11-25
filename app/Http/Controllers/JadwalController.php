@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\jadwalguru;
+use PDF;
 
 class JadwalController extends Controller
 {
@@ -11,6 +12,14 @@ class JadwalController extends Controller
     {
         $jadwal = jadwalguru::all();
         return view('jadwal.jadwal', ['jadwal' => $jadwal]);
+    }
+
+    public function cetak_pdf()
+    {
+    	$jadwal = Jadwalguru::all();
+ 
+    	$pdf = PDF::loadview('laporan.jadwal-pdf',['jadwal'=>$jadwal]);
+    	return $pdf->stream();
     }
 
     public function store(Request $request)

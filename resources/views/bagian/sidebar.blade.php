@@ -29,7 +29,7 @@
               <div class="menu_section">
                 <h3>Walikelas</h3>
                 <ul class="nav side-menu">
-                  <li><a href="#"><i class="fa fa-home"></i> Home </a></li>
+                  <li><a href="/tampil"><i class="fa fa-home"></i> Home </a></li>
 
                   <li><a href="/adm"><i class="fa fa-edit"></i> Data ADM </a></li>
 
@@ -82,13 +82,13 @@
               <a data-toggle="tooltip" data-placement="top" title="Back" href="/home">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Setting" href="setting.html">
+              <a data-toggle="tooltip" data-placement="top" title="Setting">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/logout">
+              <a data-toggle="tooltip" data-placement="top" title="....">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="....." href="....">
+              <a data-toggle="tooltip" data-placement="top" title=".....">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -105,7 +105,7 @@
               <nav class="nav navbar-nav">
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <img src="" alt="">John Doe
+                    <img src="" alt="">Wellcome
                 </li>
 
                 

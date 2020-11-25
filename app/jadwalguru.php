@@ -10,6 +10,6 @@ class jadwalguru extends Model
     
     protected $table = "jadwals";
 
-    protected $fillable = ['hari','tanggal','nama_guru','mata_pelajaran','jam'];
+    protected $fillable = ['hari','tanggal','nama_guru','mata_pelajaran','jam','kode'];
 
 }

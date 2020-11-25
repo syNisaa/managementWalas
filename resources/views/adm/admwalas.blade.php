@@ -1,7 +1,7 @@
 @extends('bagian.sidebar')
 
 @section('content')
-    <button class="btn btn-info" data-toggle="modal" data-target="#addData">Input ADM Baru</button> 
+    <button style="margin-top:2%;" class="btn btn-success" data-toggle="modal" data-target="#addData">Input ADM Baru</button> 
 
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
                     <thead>

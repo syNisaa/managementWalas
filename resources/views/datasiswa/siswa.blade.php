@@ -1,7 +1,7 @@
 @extends('bagian.sidebar')
 
 @section('content')
-    <table class="table table-striped" style="text-align:center; margin-top:2%;">
+    <table class="table table-striped" style="text-align:center; margin-top:4%;">
         <thead>
             <tr>
                 <th>Nama Siswa</th>

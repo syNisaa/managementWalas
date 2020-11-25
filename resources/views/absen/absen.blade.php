@@ -1,6 +1,8 @@
 @extends('bagian.sidebar')
 
 @section('content')
+<a href="/absen/cetak_pdf" class="btn btn-danger " style="margin-top:2%;" target="_blank">CETAK PDF</a>
+    
         <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
         
         <table class="table table-striped" style="text-align:center; margin-top:2%;">

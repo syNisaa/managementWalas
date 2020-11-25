@@ -49,6 +49,7 @@ Route::get('/absen', 'dashController@showabsen');
 Route::post('/absen/tambah', 'AbsensiController@tambah');
 Route::get('/absen/hapus/{id}', 'AbsensiController@hapus');
 Route::put('/absen/update/{id}', 'AbsensiController@update');
+Route::get('/absen/cetak_pdf', 'DashController@cetak_pdff');
 
 // kasus siswa
 Route::get('/kasus', 'DashController@showkasus');
@@ -63,7 +64,9 @@ Route::get('/rapat/hapus/{id}', 'RapatController@delete');
 Route::put('/rapat/update/{id}', 'RapatController@update');
 
 // Jadwal 
-Route::get('/jadwal', 'JadwalController@index');
+Route::get('/jadwal', 'DashController@showjadwal');
+Route::get('/jadwal/cetak_pdf', 'DashController@cetak_pdf');
+
 Route::get('/siswa', 'DashController@showsiswa');
 
 //Route Jadwal Rapat
