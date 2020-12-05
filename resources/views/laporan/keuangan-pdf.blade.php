@@ -13,27 +13,24 @@
 	</style>
  
 	<table class='table table-bordered'>
-		<thead>
+    <thead>
             <tr>
-                <th>Hari</th>
-                <th>Bulan</th>
-                <th>Nama Guru</th>
-                <th>Mata Pelajaran</th>
-                <th>Jam</th>
+                <th scope="col">Bulan</th>
+                <th scope="col">Pemasukan Kelas</th>
+                <th scope="col">Pengeluaran Kelas</th>
+                <th scope="col">Saldo</th>
             </tr>
         </thead>
+        @foreach ($u as $k)
         <tbody>
-            @php $i=1 @endphp
-            @foreach($jadwal as $j)
             <tr>
-                <td>{{ $j->hari }}</td>
-                <td>{{ $j->bulan }}</td>
-                <td>{{ $j->nama_guru }}</td>
-                <td>{{ $j->mata_pelajaran }}</td>
-                <td>{{ $j->jam }}</td>
+                <td>{{ $k -> bulan}}</td>
+                <td>{{ $k -> pemasukan}}</td>
+                <td>{{ $k -> pengeluaran}}</td>
+                <td>{{ $k -> saldo }}</td>
             </tr>
-            @endforeach
         </tbody>
+        @endforeach
 	</table>
  
 </body>

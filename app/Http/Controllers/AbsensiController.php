@@ -13,12 +13,17 @@ class AbsensiController extends Controller
     }
 
     public function tambah(Request $request ){
+        // $file = $request->file('buktinih');
+        $filebukti = $request->file('buktinih');
+
+        $upload_di = 'absennih';
+        $filebukti->move($upload_di, $filebukti->getClientOriginalName());
+
         Absensikela:: create([
             'tanggal' => $request->tanggal,
             'jumlahSiswaHadir' => $request->jumlahhadir,
             'jumlahKetidakhadiran' => $request->ketidakhadiran,
-            'namaSiswaTidakHadir' => $request->siswatidakhadir,
-            'buktiKBM' => $request->buktigambar,
+            'buktiKBM' => $filebukti->getClientOriginalName(),
             'kode' => $request->kode
         ]);
         return redirect('/absen');
@@ -37,8 +42,6 @@ class AbsensiController extends Controller
         $absen->tanggal = $request->tanggal;
         $absen->jumlahSiswaHadir = $request->jumlahhadir;
         $absen->jumlahKetidakhadiran = $request->ketidakhadiran;
-        $absen->namaSiswaTidakHadir = $request->siswatidakhadir;
-        $absen->buktiKBM = $request->buktigambar;
         $absen->save();
         return redirect('/absen');
     }

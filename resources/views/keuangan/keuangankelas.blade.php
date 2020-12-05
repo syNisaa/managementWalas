@@ -2,7 +2,8 @@
 
 @section('content')
     <button type="button" data-toggle="modal" data-target="#addData" style="margin-top:2%;" class="btn btn-success">Tambah</button>
-                    
+    <a href="/keuangan/cetak_pdf" class="btn btn-primary" target="_blank" style="margin-top:3%;">CETAK PDF</a>
+ 
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
         <thead>
             <tr>
@@ -23,7 +24,8 @@
                 <td>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $k->id }}">Update</button>
                     <!-- <a href=""><button type="button" class="btn btn-info">Edit</button></a> -->
-                    <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
+                    <!-- <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button> -->
+                    <a href="/keuangan/hapus/{{ $k->id }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
             </tr>
         </tbody>

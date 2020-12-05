@@ -96,6 +96,10 @@
                         <button type="submit" class="login100-form-btn">
                                     {{ __('Login') }}
                         </button>
+                        
+                        <button type="button" class="login100-form-btn btn btn-danger" style="margin-top:5px; ">
+                            <a href="/" style="color:white;">back</a>
+                        </button>
                     </div>
                     
                 </form>

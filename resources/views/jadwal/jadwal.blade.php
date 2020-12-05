@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Hari</th>
-                <th>Tanggal</th>
+                <th>Bulan</th>
                 <th>Nama Guru</th>
                 <th>Mata Pelajaran</th>
                 <th>Jam</th>
@@ -17,7 +17,7 @@
             @foreach($jadwal as $j)
             <tr>
                 <td>{{ $j->hari }}</td>
-                <td>{{ $j->tanggal }}</td>
+                <td>{{ $j->bulan }}</td>
                 <td>{{ $j->nama_guru }}</td>
                 <td>{{ $j->mata_pelajaran }}</td>
                 <td>{{ $j->jam }}</td>

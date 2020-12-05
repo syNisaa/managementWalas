@@ -11,7 +11,6 @@
                     <th>Tanggal</th>
                     <th>Jumlah Siswa Hadir</th>
                     <th>Jumlah Ketidakhadiran</th>
-                    <th>Siswa Yang tidak hadir</th>
                     <th>Bukti KBM</th>
                     <th>Aksi</th>
                 </tr>
@@ -22,11 +21,13 @@
                     <td>{{ $a-> tanggal }}</td>
                     <td>{{ $a-> jumlahSiswaHadir }}</td>
                     <td>{{ $a-> jumlahKetidakhadiran }}</td>
-                    <td>{{ $a-> namaSiswaTidakHadir }}</td>
-                    <td>{{ $a-> buktiKBM}}</td>
+                    <td>
+                        <img src="{{ asset ('absennih/'. $a->buktiKBM) }}" alt=" {{ $a->buktiKBM }}" width="100px" height="100px">
+                    </td>
                     <td>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#updateData{{ $a->id }}">Update</button>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteData">Hapus</button>
+                        <!-- <button class="btn btn-danger" data-toggle="modal" data-target="#deleteData">Hapus</button> -->
+                        <a href="/absen/hapus/{{ $a-> id }}"><button type="button" class="btn btn-danger">Hapus</button></a>
                     </td>
                 </tr>
                 @endforeach
@@ -45,7 +46,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="/absen/tambah" method="post">
+            <form action="/absen/tambah" method="post" enctype="multipart/form-data" role="form">
             {{ csrf_field() }}
                 <div class="input-group mb-3">
                     <input type="date" id="tanggal" name="tanggal" class="form-control"  aria-label="tanggal" aria-describedby="basic-addon1">
@@ -57,10 +58,7 @@
                     <input type="number" id="ketidakhadiran" name="ketidakhadiran" class="form-control"  aria-label="ketidakhadiran" placeholder="Jumlah Ketidakhadiran" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" id="siswatidakhadir" name="siswatidakhadir" class="form-control"  aria-label="siswatidakhadir" placeholder="Siswa yang Tidak hadir" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input type="file"  name="buktigambar">
+                    <input type="file" name="buktinih" placeholder="Bukti">
                 </div>
                 <div class="input-group mb-3">
                     <select class="custom-select" id="kode" name="kode">
@@ -103,12 +101,6 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="number" id="ketidakhadiran" name="ketidakhadiran" class="form-control"  aria-label="ketidakhadiran" value="{{$a->jumlahKetidakhadiran}}" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" id="siswatidakhadir" name="siswatidakhadir" class="form-control"  aria-label="siswatidakhadir" value="{{$a->namaSiswaTidakHadir}}" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="file"  name="buktigambar">
                     </div>
                     
             </div>

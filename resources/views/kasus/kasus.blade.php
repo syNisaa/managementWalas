@@ -2,6 +2,8 @@
 
 @section('content')
 <button style="margin-top:2%;" class="btn btn-success" data-toggle="modal" data-target="#addData"> Tambah</button>
+<a href="/kasus/cetak_pdf" class="btn btn-primary" target="_blank" style="margin-top:2%;">CETAK PDF</a>
+ 
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
         <thead>
             <tr>
@@ -21,7 +23,8 @@
                 <td>{{ $k->Tanggal }}</td>
                 <td>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#updateData{{ $k->id }}">Update</button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#hapusData">Hapus</button>
+                    <!-- <button class="btn btn-danger" data-toggle="modal" data-target="#hapusData">Hapus</button> -->
+                    <a href="/kasus/hapus/{{ $k-> id }}"><button type="button" class="btn btn-danger">Hapus</button></a>
                 </td>
             </tr>
         @endforeach

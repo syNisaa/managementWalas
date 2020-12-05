@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Jadwal</span>
-              <div class="count"><a href="/jadwal">Jadwal</a></div>
+              <div class="count"><a href="/jadwal">jadwal</a></div>
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Data ADM</span>
@@ -44,7 +44,9 @@
                 </div>
 
                 <div class="col-md-9 col-sm-9 ">
+                  <div class="container">
                     <img src="{{asset('dashboard/tech.jpg')}}" alt="" style="width:750px;">
+                  </div>
                 </div>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas eligendi sed dignissimos maiores consequatur nam natus, quo modi, itaque doloribus maxime sequi nemo, totam accusamus perspiciatis dolor eaque neque officiis?</p>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita minus perspiciatis obcaecati eum suscipit, necessitatibus porro incidunt esse nesciunt blanditiis iste dolorem consequuntur a corporis natus illum velit facere omnis!</p>

@@ -33,7 +33,7 @@
 
                   <li><a href="/adm"><i class="fa fa-edit"></i> Data ADM </a></li>
 
-                  <li><a href="/jadwal"><i class="fa fa-desktop"></i> Jadwal Mengajar </a></li>
+                  <li><a href="/jadwal"><i class="fa fa-desktop"></i> Jadwal Pelajaran </a></li>
 
                 </ul>
               </div>

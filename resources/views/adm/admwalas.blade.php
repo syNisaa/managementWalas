@@ -2,7 +2,8 @@
 
 @section('content')
     <button style="margin-top:2%;" class="btn btn-success" data-toggle="modal" data-target="#addData">Input ADM Baru</button> 
-
+    <a href="/adm/cetak_pdf" class="btn btn-primary" target="_blank" style="margin-top:2%;">CETAK PDF</a>
+ 
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
                     <thead>
                         <tr>
@@ -18,7 +19,8 @@
                             <td>{{ $a->targetPengerjaan }}</td>
                             <td>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate{{ $a->id }}">Update</button>
-                                <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button>
+                                <!-- <button data-toggle="modal" data-target="#hapusData" type="button" class="btn btn-danger">Hapus</button> -->
+                                <a href="/adm/hapus/{{ $a->id }}"><button type="button" class="btn btn-danger">Delete</button></a>
                             </td>
                         </tr>
                         @endforeach
@@ -108,7 +110,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Keuangan Kelas </h5>
+                <h5 class="modal-title">Tambah Data ADM Kelas </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

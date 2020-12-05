@@ -2,8 +2,9 @@
 
 @section('content')
 
-    <a data-toggle="modal" data-target="#tambah-data" class="btn btn-primary" style="color:white;"><i class="fa fa-plus"></i> Jadwal</a>
-
+    <a data-toggle="modal" data-target="#tambah-data" class="btn btn-primary" style="color:white;"> Rapat</a>
+    <a href="/rapat/cetak_pdf" class="btn btn-primary" target="_blank" style="margin-top:;">CETAK PDF</a>
+ 
     <table class="table table-striped" style="text-align:center; margin-top:2%;">
                     <thead>
                         <tr>
@@ -42,7 +43,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Input Jadwal</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Input Laporan Rapat</h5>
                         </div>
                         <form class="form-horizontal" action="/add_jadwal" method="post" enctype="multipart/form-data" role="form">
                           {{ csrf_field() }}
@@ -196,7 +197,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Management Walas</h5>
+                <h5 class="modal-title">Management Walas / Update Laporan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

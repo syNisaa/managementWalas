@@ -32,9 +32,9 @@ class keuanganController extends Controller
 
     public function hapus($id)
     {
-        $keuangan = Keuangan::find($id);
+        $keuangan = Keuangan::where('id',$id)->firstOrFail();
         $keuangan->delete();
-        return redirect('/keuangan');
+        return redirect('/keuangannn');
     }
 
     public function update(Request $request,$id)
